@@ -33,6 +33,11 @@ class PermissionSeeder extends Seeder
             ['name' => 'manage-user.update', 'guard_name' => 'web'],
             ['name' => 'manage-user.delete', 'guard_name' => 'web'],
 
+            ['name' => 'category.manage', 'guard_name' => 'web'],
+            ['name' => 'category.create', 'guard_name' => 'web'],
+            ['name' => 'category.update', 'guard_name' => 'web'],
+            ['name' => 'category.delete', 'guard_name' => 'web'],
+
         ];
 
         Permission::upsert($permissions, 'name');
