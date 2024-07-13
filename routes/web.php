@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use Illuminate\Support\Facades\Route;
@@ -18,8 +19,14 @@ Route::group(["prefix" => "admin", 'middleware' => ['auth:sanctum', config('jets
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
     Route::get('category', [CategoryController::class, 'index'])->name('category');
-    Route::get('category/{category}/edit', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::get('category/{category:slug}/edit', [CategoryController::class, 'edit'])->name('category.edit');
     Route::delete('category/{category}', [CategoryController::class, 'destroy']);
+
+    Route::get('product', [ProductController::class, 'create'])->name('product');
+    Route::get('manage-products', [ProductController::class, 'manage'])->name('productsManage');
+    Route::get('product/{product:slug}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    Route::delete('product/{product}', [ProductController::class, 'destroy']);
+
 });
 
 

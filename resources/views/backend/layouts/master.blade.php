@@ -27,8 +27,7 @@
     <link rel="stylesheet" href="{{ asset('assets/backend/dist/css/adminlte.min.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('assets/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-    <!-- summernote -->
-    <link rel="stylesheet" href="{{ asset('assets/backend/plugins/summernote/summernote-bs4.min.css') }}">
+  
     @yield('styles')
     @livewireStyles
 </head>
@@ -73,8 +72,7 @@
     </script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('assets/backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- Summernote -->
-    <script src="{{ asset('assets/backend/plugins/summernote/summernote-bs4.min.js') }}"></script>
+
     <!-- overlayScrollbars -->
     <script src="{{ asset('assets/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
    
