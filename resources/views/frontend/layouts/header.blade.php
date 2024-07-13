@@ -3,9 +3,6 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
             <form class="form-inline">
                 <div class="relative flex items-center">
-                    <button class="absolute left-0 ml-2" type="submit">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
                     <input class="form-control ml-10 pl-4 mb-0" type="search" placeholder="Search" aria-label="Search">
                 </div>
             </form>

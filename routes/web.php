@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'index'])->name('/');
 Route::get('/products', [FrontendController::class, 'products'])->name('products');
 Route::get('/product-details', [FrontendController::class, 'productDetails'])->name('productDetails');
-Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
+Route::post('/cart/add', [FrontendController::class, 'addCart'])->name('addCart');
 Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
 
 //ADMIN

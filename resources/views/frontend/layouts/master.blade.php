@@ -9,15 +9,12 @@
     <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/bootstrap.css') }}" />
-    <link href="{{ asset('assets/frontend/css/font-awesome.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/frontend/css/style.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/frontend/css/responsive.css') }}" rel="stylesheet" />
-
-    @livewireStyles
+    @vite(['resources/js/app.js'])
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/bootstrap.css') }}">
+    <link href="{{ asset('assets/frontend/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/css/responsive.css') }}" rel="stylesheet">
+    @yield('styles')
 </head>
 
 
@@ -36,7 +33,6 @@
     <script src="{{ asset('assets/frontend/js/custom.js') }}"></script>
     @yield('scripts')
     @stack('scripts')
-    @livewireScripts
 </body>
 
 </html>
