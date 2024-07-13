@@ -16,28 +16,35 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{route('/')}}">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('/') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('products')}}"><span class="sr-only">(current)</span>Products</a>
+                        <a class="nav-link" href="{{ route('products') }}">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><span class="sr-only">(current)</span>Contact</a>
+                        <a class="nav-link" href="#">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('login')}}"><span class="sr-only">(current)</span>Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('register')}}"><span class="sr-only">(current)</span>Register</a>
-                    </li>
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route(authUserFolder() . '.dashboard') }}">Dashboard</a>
+                        </li>
+                    @endauth
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        </li>
+                    @endguest
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                         <i class="fa fa-cart-plus" style="font-size: 20px"></i>
+                            <i class="fa fa-cart-plus" style="font-size: 20px"></i>
                         </a>
                     </li>
-                  
-                    
-                    
+
+
+
                 </ul>
             </div>
         </nav>
