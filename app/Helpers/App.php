@@ -14,6 +14,7 @@ function authUserFolder(): string
             $folder = 'admin';
         }
     }
+   
     return $folder;
 }
 
