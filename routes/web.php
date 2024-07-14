@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
+use App\Http\Controllers\User\OrderController;
 use Illuminate\Support\Facades\Route;
 
 // FRONTEND
@@ -36,6 +37,10 @@ Route::group(["prefix" => "admin", 'middleware' => ['auth:sanctum', config('jets
 //User
 Route::group(["prefix" => "user", 'middleware' => ['auth:sanctum', config('jetstream.auth_session'), 'role:user'], "as" => 'user.'], function () {
     Route::get('dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
+
     Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
     Route::get('/thank-you', [FrontendController::class, 'thankYou'])->name('thankYou');
+
+    Route::get('orders', [OrderController::class, 'orders'])->name('orders');
+    Route::get('order-items/{order}', [OrderController::class, 'orderItems'])->name('orderItems');
 });
