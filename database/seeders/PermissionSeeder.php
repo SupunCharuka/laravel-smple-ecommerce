@@ -38,6 +38,10 @@ class PermissionSeeder extends Seeder
             ['name' => 'category.update', 'guard_name' => 'web'],
             ['name' => 'category.delete', 'guard_name' => 'web'],
 
+            ['name' => 'orders.manage', 'guard_name' => 'web'],
+            ['name' => 'orders.change-status', 'guard_name' => 'web'],
+            ['name' => 'orders.items', 'guard_name' => 'web'],
+
         ];
 
         Permission::upsert($permissions, 'name');

@@ -36,7 +36,7 @@ class OrderController extends Controller
                     return '<span class="badge badge-' . $badgeClass . '">' . ucfirst($order->status) . '</span>';
                 })
                 ->addColumn('actions', function ($order) {
-                    return '<a href="' . route('user.orderItems', $order->id) . '" class="btn btn-info btn-sm">View</a>';
+                    return '<a href="' . route('orderItems', $order->id) . '" class="btn btn-info btn-sm">View</a>';
                 })
                 ->rawColumns(['status', 'actions'])
                 ->make(true);
