@@ -46,17 +46,19 @@ class FrontendController extends Controller
 
         if (!$cart) {
             $cart[$productId] = [
+                "productId" => $product->id,
                 "name" => $product->title,
                 "quantity" => 1,
                 "price" => $product->price,
                 "image" => $product->image
             ];
         } elseif (isset($cart[$productId])) {
-           
+
             $cart[$productId]['quantity']++;
         } else {
-           
+
             $cart[$productId] = [
+                "productId" => $product->id,
                 "name" => $product->title,
                 "quantity" => 1,
                 "price" => $product->price,
@@ -77,8 +79,45 @@ class FrontendController extends Controller
 
     public function cart()
     {
-        return view('frontend.cart');
+        $cart = session()->get('cart', []);
+        return view('frontend.cart', compact('cart'));
     }
+
+
+    public function updateCart(Request $request)
+    {
+        $productId = $request->input('product_id');
+        $quantity = $request->input('quantity');
+
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$productId])) {
+            $cart[$productId]['quantity'] = $quantity;
+            $newTotal = $cart[$productId]['price'] * $quantity;
+            session()->put('cart', $cart);
+            return response()->json(['status' => 'success', 'newTotal' => $newTotal]);
+        }
+
+        return response()->json(['status' => 'error', 'message' => 'Product not found in cart'], 404);
+    }
+
+
+
+    public function removeCart(Request $request)
+    {
+        $productId = $request->input('product_id');
+
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$productId])) {
+            unset($cart[$productId]);
+            session()->put('cart', $cart);
+            return response()->json(['status' => 'success', 'message' => 'Product removed from cart']);
+        }
+
+        return response()->json(['status' => 'error', 'message' => 'Product not found in cart'], 404);
+    }
+
 
     public function checkout()
     {

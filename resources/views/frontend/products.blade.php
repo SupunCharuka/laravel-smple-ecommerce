@@ -4,13 +4,18 @@
 @endsection
 @section('content')
 
-    <section class="product_section layout_padding">
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
+                    class="text-black">Products</strong></div>
+        </div>
+    </div>
+</div>
+
+    <section class="product_section layout_padding p-0">
         <div class="container">
-            <div class="heading_container heading_center">
-                <h2>
-                    Our <span>products</span>
-                </h2>
-            </div>
+          
             <div class="flex justify-center my-4">
                 <form class="flex items-center w-full max-w-md">
                     <div class="relative flex w-full">
