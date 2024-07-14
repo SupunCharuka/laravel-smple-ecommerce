@@ -54,12 +54,12 @@ Run php artisan serve
 
 ### Admin
 
-####Email: admin@gmail.com
-####Password: password
+#### Email: admin@gmail.com
+#### Password: password
 
 ### User
 
-####Email: user@gmail.com
-####Password: password
+#### Email: user@gmail.com
+#### Password: password
 
 [Admin Template](https://adminlte.io/)
