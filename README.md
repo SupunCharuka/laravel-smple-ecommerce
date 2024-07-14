@@ -1,4 +1,4 @@
-# Laravel E-commerce Application
+# Laravel Developer Assignment
 
 ## Overview
 
