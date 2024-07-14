@@ -38,29 +38,25 @@
                 <form method="POST" action="{{ route('login') }}" class="card">
                     @csrf
                     <div class="card-body">
-                        <div>
-                            <x-label for="email" value="{{ __('Email') }}" />
-                            <x-input id="email" class="form-control block mt-1 w-full" type="email" name="email"
-                                :value="old('email')" required autofocus autocomplete="username" />
+                        <div class="mb-3">
+                            <label for="email" class="form-label">{{ __('Email') }}</label>
+                            <input id="email" class="form-control" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username" />
                         </div>
-
-                        <div class="mt-4">
-                            <x-label for="password" value="{{ __('Password') }}" />
-                            <x-input id="password" class="form-control block mt-1 w-full" type="password" name="password" required
-                                autocomplete="current-password" />
+                
+                        <div class="mb-3">
+                            <label for="password" class="form-label">{{ __('Password') }}</label>
+                            <input id="password" class="form-control" type="password" name="password" required autocomplete="current-password" />
                         </div>
-
-                        <div class="block mt-4">
-                            <label for="remember_me" class="flex items-center">
-                                <x-checkbox id="remember_me" name="remember" class="mb-0" />
-                                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                            </label>
+                
+                        <div class="form-check mb-3">
+                            <input id="remember_me" type="checkbox" name="remember" class="form-check-input" style="padding: 0px; width: 16px !important;height: 16px !important;" />
+                            <label for="remember_me" class="form-check-label">{{ __('Remember me') }}</label>
                         </div>
-
-                        <div class="flex items-center justify-end mt-4">
-                            <x-button class="ms-4">
+                
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">
                                 {{ __('Log in') }}
-                            </x-button>
+                            </button>
                         </div>
                     </div>
                 </form>

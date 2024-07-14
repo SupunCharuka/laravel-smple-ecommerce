@@ -121,6 +121,16 @@ class FrontendController extends Controller
 
     public function checkout()
     {
-        return view('frontend.checkout');
+        $cart = session()->get('cart', []);
+        if (empty($cart)) {
+            return redirect()->route('cart')->with('error', 'Your cart is empty.');
+        }
+        return view('frontend.checkout', compact('cart'));
+    }
+
+    public function thankYou()
+    {
+        
+        return view('frontend.thank-you');
     }
 }

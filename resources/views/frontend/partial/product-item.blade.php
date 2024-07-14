@@ -9,7 +9,7 @@
                 <div class="option_container">
                     <div class="options">
                         <a href="#" class="option1 add-to-cart" data-product-id="{{ $product->id }}">Add To Cart</a>
-                        <a href="#" class="option2">Buy Now</a>
+                        <a href="{{route('productDetails')}}" class="option2">View</a>
                     </div>
                 </div>
                 <div class="img-box">

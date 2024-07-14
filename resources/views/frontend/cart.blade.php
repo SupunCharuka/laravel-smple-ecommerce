@@ -6,7 +6,7 @@
     <div class="bg-light py-3">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
+                <div class="col-md-12 mb-0"><a href="{{route('/')}}">Home</a> <span class="mx-2 mb-0">/</span> <strong
                         class="text-black">Cart</strong></div>
             </div>
         </div>
@@ -15,6 +15,12 @@
     <div class="product_section layout_padding">
         <div class="container">
             <div class="row mb-5">
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
                 <form class="col-md-12" method="post">
                     <div class="site-blocks-table">
                         <table class="table table-bordered">
@@ -104,7 +110,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <a class="btn btn-primary btn-lg py-3 btn-block" href="{{ route('checkout') }}" >Proceed
+                                    <a class="btn btn-primary btn-lg py-3 btn-block" href="{{ route('user.checkout') }}">Proceed
                                         To Checkout</a>
                                 </div>
                             </div>

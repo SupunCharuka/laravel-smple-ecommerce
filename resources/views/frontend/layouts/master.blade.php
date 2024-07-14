@@ -15,6 +15,7 @@
     <link href="{{ asset('assets/frontend/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/frontend/css/responsive.css') }}" rel="stylesheet">
     @yield('styles')
+    @livewireStyles
 </head>
 
 
@@ -33,6 +34,7 @@
     <script src="{{ asset('assets/frontend/js/custom.js') }}"></script>
     @yield('scripts')
     @stack('scripts')
+    @livewireScripts
 </body>
 
 </html>

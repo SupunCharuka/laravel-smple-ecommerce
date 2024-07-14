@@ -15,10 +15,10 @@ Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
 Route::post('/cart/add', [FrontendController::class, 'addCart'])->name('addCart');
 Route::post('/cart/update',  [FrontendController::class, 'updateCart'])->name('cart.update');
 Route::post('/cart/remove',  [FrontendController::class, 'removeCart'])->name('cart.remove');
-Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
+
 
 //ADMIN
-Route::group(["prefix" => "admin", 'middleware' => ['auth:sanctum', config('jetstream.auth_session'), 'verified', 'has_any_admin_role'], "as" => 'admin.'], function () {
+Route::group(["prefix" => "admin", 'middleware' => ['auth:sanctum', config('jetstream.auth_session'), 'has_any_admin_role'], "as" => 'admin.'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
     Route::get('category', [CategoryController::class, 'index'])->name('category');
@@ -34,6 +34,8 @@ Route::group(["prefix" => "admin", 'middleware' => ['auth:sanctum', config('jets
 
 
 //User
-Route::group(["prefix" => "customer", 'middleware' => ['auth:sanctum', config('jetstream.auth_session'),  'verified', 'role:customer'], "as" => 'customer.'], function () {
+Route::group(["prefix" => "customer", 'middleware' => ['auth:sanctum', config('jetstream.auth_session'), 'role:user'], "as" => 'user.'], function () {
     Route::get('dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
+    Route::get('/thank-you', [FrontendController::class, 'thankYou'])->name('thankYou');
 });
