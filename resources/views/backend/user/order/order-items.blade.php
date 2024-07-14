@@ -8,7 +8,13 @@
 @endsection
 @section('breadcrumb-title', 'Order Items')
 @section('breadcrumb-item')
-    <li class="breadcrumb-item"><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
+
+    @if (auth()->user()->hasRole('admin'))
+        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+    @elseif(auth()->user()->hasRole('user'))
+        <li class="breadcrumb-item"><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
+    @endif
+
     <li class="breadcrumb-item"><a href="{{ route('user.orders') }}">Orders</a></li>
     <li class="breadcrumb-item active">Order Items</li>
 @endsection
@@ -38,7 +44,7 @@
                                     <th>Category</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
-                                    <th>Product Details</th>                                   
+                                    <th>Product Details</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,7 +56,7 @@
                                     <th>Category</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
-                                    <th>Product Details</th>   
+                                    <th>Product Details</th>
                                 </tr>
                             </tfoot>
                         </table>
