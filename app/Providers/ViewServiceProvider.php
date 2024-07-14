@@ -24,9 +24,7 @@ class ViewServiceProvider extends ServiceProvider
             $cart = session()->get('cart', []);
             $count = 0;
 
-            foreach ($cart as $item) {
-                $count += $item['quantity'];
-            }
+            $count = count($cart);
 
             $view->with('cartCount', $count);
         });

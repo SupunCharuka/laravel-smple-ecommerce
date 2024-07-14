@@ -94,9 +94,7 @@ class FrontendController extends Controller
         $cart = session()->get('cart', []);
         $count = 0;
 
-        foreach ($cart as $item) {
-            $count += $item['quantity'];
-        }
+        $count = count($cart);
 
         return response()->json(['count' => $count]);
     }
