@@ -28,27 +28,27 @@ git clone https://github.com/SupunSynotec/laravel-developer-assignment.git
 
 ### 2. Install Dependencies
 
-Run composer install
+composer install
 
 ### 3. Set Up Environment File
 
-Run cp .env.example .env or copy .env.example .env
+cp .env.example .env or copy .env.example .env
 
 ### 4. Generate Application Key
 
-Run php artisan key:generate
+php artisan key:generate
 
 ### 5. Migrate the Database
 
-Run php artisan migrate
+php artisan migrate
 
 ### 6. Seed the Database
 
-Run php artisan db:seed
+php artisan db:seed
 
 ### 7. Serve the Application
 
-Run php artisan serve
+php artisan serve
 
 ## Default User Credentials
 
