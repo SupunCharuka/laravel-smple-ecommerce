@@ -39,32 +39,4 @@ $(document).ready(function () {
         const search = $(this).val();
         loadProducts(1, search);
     });
-
-    $(document).on("click", ".add-to-cart", function (e) {
-        e.preventDefault();
-        const productId = $(this).data("product-id");
-
-        $.ajax({
-            url: "/cart/add",
-            type: "POST",
-            data: {
-                _token: $('meta[name="csrf-token"]').attr("content"),
-                product_id: productId,
-            },
-            success: function (response) {
-                if (response.status === "success") {
-                    // alert(response.message);
-                    window.Toast.fire({
-                        icon: "success",
-                        title: response.message,
-                    });
-                } else {
-                    alert("Something went wrong. Please try again.");
-                }
-            },
-            error: function (xhr) {
-                alert("Something went wrong. Please try again.");
-            },
-        });
-    });
 });

@@ -31,43 +31,53 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">              
-                <li class="nav-item">
-                    <a href="{{ route('admin.category') }}" class="nav-link {{ Route::is('admin.category') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Category
-                        </p>
-                    </a>
-                </li>
+                data-accordion="false">
+                @can('category.manage')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.category') }}"
+                            class="nav-link {{ Route::is('admin.category') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Category
+                            </p>
+                        </a>
+                    </li>
+                @endcan
+                @can('product.create')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.product') }}"
+                            class="nav-link {{ Route::is('admin.product') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Add-Product
+                            </p>
+                        </a>
+                    </li>
+                @endcan
 
-                <li class="nav-item">
-                    <a href="{{ route('admin.product') }}" class="nav-link {{ Route::is('admin.product') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Add-Product
-                        </p>
-                    </a>
-                </li>
+                @can('product.manage')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.productsManage') }}"
+                            class="nav-link {{ Route::is('admin.productsManage') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Manage-Product
+                            </p>
+                        </a>
+                    </li>
+                @endcan
 
-                <li class="nav-item">
-                    <a href="{{ route('admin.productsManage') }}" class="nav-link {{ Route::is('admin.productsManage') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Manage-Product
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('admin.manageOrders') }}" class="nav-link {{ Route::is('admin.manageOrders') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Manage-Orders
-                        </p>
-                    </a>
-                </li>
-
+                @can('orders.manage')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.manageOrders') }}"
+                            class="nav-link {{ Route::is('admin.manageOrders') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Manage-Orders
+                            </p>
+                        </a>
+                    </li>
+                @endcan
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

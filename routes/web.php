@@ -17,6 +17,7 @@ Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
 Route::post('/cart/add', [FrontendController::class, 'addCart'])->name('addCart');
 Route::post('/cart/update',  [FrontendController::class, 'updateCart'])->name('cart.update');
 Route::post('/cart/remove',  [FrontendController::class, 'removeCart'])->name('cart.remove');
+Route::get('/cart/count', [FrontendController::class, 'getCartCount']);
 
 
 //ADMIN

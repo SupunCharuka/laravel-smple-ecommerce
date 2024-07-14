@@ -89,6 +89,19 @@ class FrontendController extends Controller
     }
 
 
+    public function getCartCount()
+    {
+        $cart = session()->get('cart', []);
+        $count = 0;
+
+        foreach ($cart as $item) {
+            $count += $item['quantity'];
+        }
+
+        return response()->json(['count' => $count]);
+    }
+
+
     public function updateCart(Request $request)
     {
         $productId = $request->input('product_id');

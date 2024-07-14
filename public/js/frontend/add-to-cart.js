@@ -14,6 +14,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 if (response.status === "success") {
+                    updateCartCount();
                     window.Toast.fire({
                         icon: "success",
                         title: response.message,
@@ -33,4 +34,21 @@ $(document).ready(function () {
             },
         });
     });
+    function updateCartCount() {
+        $.ajax({
+            url: "/cart/count", 
+            type: "GET",
+            success: function (response) {
+                if (response.count) {
+                
+                    $(".cart-count").text(response.count);
+                }
+            },
+            error: function (xhr) {
+                console.error("Failed to fetch cart count.");
+            },
+        });
+    }
 });
+
+

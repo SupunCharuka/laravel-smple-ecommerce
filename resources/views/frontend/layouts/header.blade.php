@@ -35,8 +35,11 @@
                         </li>
                     @endguest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('cart')}}">
+                        <a class="nav-link" href="{{ route('cart') }}">
                             <i class="fa fa-cart-plus" style="font-size: 20px"></i>
+                          
+                                <span class="badge text-black cart-count badge-pill badge-danger">{{ $cartCount }}</span>
+                           
                         </a>
                     </li>
 
