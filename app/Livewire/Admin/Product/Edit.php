@@ -15,6 +15,7 @@ class Edit extends Component
     public $category_id;
     public $title;
     public $description;
+    public $short_description;
     public $price;
     public $quantity;
     public $image;
@@ -28,6 +29,7 @@ class Edit extends Component
             'category_id' => 'required|exists:categories,id',
             'title' => 'required|string|max:250',
             'description' => 'nullable|string',
+            'short_description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'quantity' => 'required|integer|min:0',
             'image' => 'nullable|image|max:2048',
@@ -40,6 +42,7 @@ class Edit extends Component
         $this->category_id = $product->category_id;
         $this->title = $product->title;
         $this->description = $product->description;
+        $this->short_description = $product->short_description;
         $this->price = $product->price;
         $this->quantity = $product->quantity;
         $this->categories = Category::all();

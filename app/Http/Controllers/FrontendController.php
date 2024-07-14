@@ -36,6 +36,7 @@ class FrontendController extends Controller
     public function addCart(Request $request)
     {
         $productId = $request->input('product_id');
+        $quantity = $request->input('quantity', 1);
         $product = Product::find($productId);
 
         if (!$product) {
@@ -48,19 +49,19 @@ class FrontendController extends Controller
             $cart[$productId] = [
                 "productId" => $product->id,
                 "name" => $product->title,
-                "quantity" => 1,
+                "quantity" => $quantity,
                 "price" => $product->price,
                 "image" => $product->image
             ];
         } elseif (isset($cart[$productId])) {
 
-            $cart[$productId]['quantity']++;
+            $cart[$productId]['quantity'] += $quantity;
         } else {
 
             $cart[$productId] = [
                 "productId" => $product->id,
                 "name" => $product->title,
-                "quantity" => 1,
+                "quantity" => $quantity,
                 "price" => $product->price,
                 "image" => $product->image
             ];
@@ -72,9 +73,13 @@ class FrontendController extends Controller
     }
 
 
-    public function productDetails()
+    public function productDetails(Product $product)
     {
-        return view('frontend.product-details');
+        $similarProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->take(4)
+            ->get();
+        return view('frontend.product-details', compact('product', 'similarProducts'));
     }
 
     public function cart()
@@ -130,7 +135,7 @@ class FrontendController extends Controller
 
     public function thankYou()
     {
-        
+
         return view('frontend.thank-you');
     }
 }

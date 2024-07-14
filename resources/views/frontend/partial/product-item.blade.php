@@ -9,7 +9,7 @@
                 <div class="option_container">
                     <div class="options">
                         <a href="#" class="option1 add-to-cart" data-product-id="{{ $product->id }}">Add To Cart</a>
-                        <a href="{{route('productDetails')}}" class="option2">View</a>
+                        <a href="{{route('productDetails',$product)}}" class="option2">View</a>
                     </div>
                 </div>
                 <div class="img-box">
@@ -17,7 +17,7 @@
                 </div>
                 <div class="detail-box">
                     <h5>{{ $product->title }}</h5>
-                    <h6>${{ $product->price }}</h6>
+                    <h6>${{ number_format($product->price, 2) }}</h6>
                 </div>
             </div>
         </div>

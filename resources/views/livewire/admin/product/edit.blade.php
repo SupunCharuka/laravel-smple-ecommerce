@@ -36,6 +36,17 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="short_description">Short Description</label>
+                    <div wire:ignore>
+                        <textarea wire:model.defer="short_description" class="form-control" id="short_description"
+                            placeholder="Enter short description"></textarea>
+                    </div>
+                    @error('short_description')
+                        <p class="text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="form-group">
                     <label for="description">Description</label>
                     <div wire:ignore>
                         <textarea wire:model.defer="description" class="form-control" id="summernote" placeholder="Enter description"></textarea>
@@ -66,7 +77,7 @@
 
                 <div class="form-group">
                     <label for="image">Product Image</label>
-                    
+
                     <input wire:model="image" type="file" class="form-control" id="image">
                     @if ($existingImageUrl)
                         <div>

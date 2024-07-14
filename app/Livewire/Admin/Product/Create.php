@@ -14,6 +14,7 @@ class Create extends Component
     public $category_id;
     public $title;
     public $description;
+    public $short_description;
     public $price;
     public $quantity;
     public $image;
@@ -27,6 +28,7 @@ class Create extends Component
             'category_id' => 'required|exists:categories,id',
             'title' => 'required|string|max:250',
             'description' => 'nullable|string',
+            'short_description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
             'quantity' => 'required|integer|min:0',
             'image' => 'nullable|image|max:2048',
